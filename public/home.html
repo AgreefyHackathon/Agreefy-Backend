@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Upload File to IPFS!</title>
+</head>
+
+<body>
+    <div>
+
+        <div style="font-weight: bold; font-size: 18px; padding-bottom: 15px;">
+            Upload or view Contract!
+        </div>
+        <div>
+            <div style="font-weight: bold; font-size: 17px; padding-bottom: 10px;">
+                Upload Your Contract!
+            </div>
+            <form style="display: flex; flex-direction: column; gap: 10px" action="new/" method="post"
+                enctype="multipart/form-data">
+                <div>
+                    <label for="firstParty_id">First Party Id</label>
+                    <input type="text" name="firstParty_id" />
+                </div>
+
+                <div>
+                    <label for="secondParty_id">Second Party Id</label>
+                    <input type="text" name="secondParty_id" />
+                </div>
+
+                <div>
+                    <label for="contract">File</label>
+                    <input type="file" name="contract" />
+                </div>
+                <div>
+                    <button>Upload!</button>
+                </div>
+            </form>
+        </div>
+        <br />
+        <div>
+            <div style="font-weight: bold; font-size: 17px; padding-bottom: 10px;">
+                Download Contract Here!
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 10px">
+                <div>
+                    <label for="secondParty_id">Hash Id</label>
+                    <input id="filehash" type="text">
+                </div>
+                <div>
+                    <button onclick="loadDoc()">download</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    function loadDoc() {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                console.log(this);
+                window.open(this.responseURL);
+            }
+        };
+        console.log(document.getElementById("filehash").value)
+        xhttp.open("GET", "view/" + document.getElementById("filehash").value, true);
+        xhttp.send();
+    }
+</script>
+
+</html>

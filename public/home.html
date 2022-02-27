@@ -5,13 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Upload File to IPFS!</title>
+    <title id="title">Upload File to IPFS!!</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap');
+    </style>
 </head>
 
 <body>
     <div>
 
-        <div style="font-weight: bold; font-size: 18px; padding-bottom: 15px;">
+        <div style="font-weight: bold; font-size: 18px; padding-bottom: 15px; font-family: sans-serif;">
             Upload or view Contract!
         </div>
         <div>
@@ -21,12 +25,12 @@
             <form style="display: flex; flex-direction: column; gap: 10px" action="new/" method="post"
                 enctype="multipart/form-data">
                 <div>
-                    <label for="firstParty_id">First Party Id</label>
+                    <label for="firstParty_id">First Party Id: </label>
                     <input type="text" name="firstParty_id" />
                 </div>
 
                 <div>
-                    <label for="secondParty_id">Second Party Id</label>
+                    <label for="secondParty_id">Second Party Id: </label>
                     <input type="text" name="secondParty_id" />
                 </div>
 
@@ -46,11 +50,11 @@
             </div>
             <div style="display: flex; flex-direction: column; gap: 10px">
                 <div>
-                    <label for="secondParty_id">Hash Id</label>
+                    <label for="secondParty_id">Hash Id: </label>
                     <input id="filehash" type="text">
                 </div>
                 <div>
-                    <button onclick="loadDoc()">download</button>
+                    <button onclick="loadDoc()">Download!</button>
                 </div>
             </div>
         </div>

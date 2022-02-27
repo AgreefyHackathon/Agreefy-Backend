@@ -9,9 +9,6 @@ import request from 'request'
 
 const { create } = require('ipfs-http-client')
 
-// Don't move peerID to .env
-// const peerID = 'XTCFIL231021IPFS-4566A8975F1135XB468'; // Secret-Key (Expires in 3 Days)
-
 const app = Express();
 // express session
 app.set('trust proxy', 1) // trust first proxy
@@ -29,8 +26,8 @@ const ipfs = create({
 /**
  * Function to serve the index.html to manage the contracts
  */
-app.get('/manage/', function (req, res) {
-    res.sendFile('manage.html', { root: path.resolve('.', 'public') });
+app.get('/home/', function (req, res) {
+    res.sendFile('home.html', { root: path.resolve('.', 'public') });
 })
 
 app.post('/new/', async (req, res, next) => {
@@ -124,4 +121,4 @@ function extractMultipartFormData(req: any): Promise<{ uploads: any, fields: any
     });
 };
 
-export const contractApi = functions.https.onRequest(app);
+export const agreefy = functions.https.onRequest(app);
